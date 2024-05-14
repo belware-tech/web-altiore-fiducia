@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+body {
+	@apply flex flex-col h-screen w-screen;
+}
+.gradient-heading-primary {
+	@apply bg-gradient-to-br from-primary-500 to-primary-400;
+	@apply bg-clip-text text-transparent box-decoration-clone;
+}
+.gradient-heading-secondary {
+	@apply bg-gradient-to-br from-secondary-500 to-secondary-400;
+	@apply bg-clip-text text-transparent box-decoration-clone;
+}
+.gradient-heading-tertiary {
+	@apply bg-gradient-to-br from-tertiary-500 to-tertiary-400;
+	@apply bg-clip-text text-transparent box-decoration-clone;
+}
+.text-paragraph {
+	@apply font-light leading-relaxed text-2xl;
+}
