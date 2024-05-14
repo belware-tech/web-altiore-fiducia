@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { t } from '$lib/i18n/i18n';
 
+	import { fade } from 'svelte/transition';
+
 	import images from '$lib/assets/images';
 	import objectives from '$lib/constants/objectives';
 	import smoothScroll from '$lib/utils/smoothScroll';
@@ -20,23 +22,25 @@
 
 <main>
 	<section id="home">
-		<Landing
-			background={images.LANDING}
-			title={$t(locale, 'landing.title')}
-			subtitle={$t(locale, 'landing.subtitle')}
-			paragraph={$t(locale, 'landing.paragraph')}
-		>
-			<Button
-				onClick={() => smoothScroll('about-us')}
-				variant="bg-primary-200 text-black"
-				>{$t(locale, 'landing.btn.launch')}</Button
+		<div in:fade={{ delay: 1000, duration: 1000 }}>
+			<Landing
+				background={images.LANDING}
+				title={$t(locale, 'landing.title')}
+				subtitle={$t(locale, 'landing.subtitle')}
+				paragraph={$t(locale, 'landing.paragraph')}
 			>
-			<Button
-				onClick={() => smoothScroll('contact-us')}
-				variant="variant-filled-secondary"
-				>{$t(locale, 'landing.btn.explore')}</Button
-			>
-		</Landing>
+				<Button
+					onClick={() => smoothScroll('about-us')}
+					variant="bg-primary-200 text-black"
+					>{$t(locale, 'landing.btn.launch')}</Button
+				>
+				<Button
+					onClick={() => smoothScroll('contact-us')}
+					variant="variant-filled-secondary"
+					>{$t(locale, 'landing.btn.explore')}</Button
+				>
+			</Landing>
+		</div>
 	</section>
 	<section id="about-us" class="flex flex-col bg-primary-500">
 		<AboutUs />
